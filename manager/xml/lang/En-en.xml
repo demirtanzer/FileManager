@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FileManager>
+	<language>
+		<name>English</name>
+	</language>
+	<button>
+		<back>Back</back>
+		<refresh>Refresh</refresh>
+		<fileAndFolder>File and Folder</fileAndFolder>
+		<newFile>New File</newFile>
+		<newFolder>New Folder</newFolder>
+		<edit>Edit</edit>
+		<copy>Copy</copy>
+		<move>Move</move>
+		<rename>Rename</rename>
+		<archive>Archive</archive>
+		<archiveRar>Archive for RAR</archiveRar>
+		<archiveZip>Archive for ZIP</archiveZip>
+		<unarchive>Unarchive</unarchive>
+		<download>Download</download>
+		<upload>Upload</upload>
+		<delete>Delete</delete>
+		<detail>Details</detail>
+		<languageList>Language List</languageList>
+		<settings>Settings</settings>
+		<cancel>Cancel</cancel>
+		<close>Close</close>
+		<okey>Okey</okey>
+		<addArchive>Create Archive</addArchive>
+		<reopen>Reopen</reopen>
+		<save>Save</save>
+		<show>Show</show>
+		<clipboard>Clipboard</clipboard>
+		<completeAction>Action</completeAction>
+		<imageCrop>Image Crop</imageCrop>
+	</button>
+	<message>
+		<sure>
+			<areYouSure>Are you sure?</areYouSure>
+			<fileEdit>Are you sure? You will lose all changes you made</fileEdit>
+			<fileDelete>item will be permanently deleted</fileDelete>
+			<canNotBeDone>This action can not be undone</canNotBeDone>
+			<messageCopyFileFolder>Please select the copy location</messageCopyFileFolder>
+			<messageRenameFileFolder>New name</messageRenameFileFolder>
+			<newZipFileName>The name of the archive file</newZipFileName>
+			<newFolderName>The name of the directory to be created</newFolderName>
+			<newFolderMessage>Enter the name of the directory you want to create. This directory will be created in the displayed directory</newFolderMessage>
+			<newFileName>Name of the file to be created</newFileName>
+			<newFileMessage>Enter the name of the file you want to create. This file will be created in the displayed directory</newFileMessage>
+		</sure>
+		<done>
+			<successful>Action successful</successful>
+			<successfulUpload>Upload successful</successfulUpload>
+			<successfulRename>Rename successful</successfulRename>
+			<successfulCopy>Copy successful</successfulCopy>
+			<successfulMove>Move successful</successfulMove>
+			<successfulDelete>The following files are deleted</successfulDelete>
+			<successfulCreateZip>ZIP archive created</successfulCreateZip>
+			<fileAddZipArchive>File add to Zip Archive</fileAddZipArchive>
+			<successfulUnarchive>Archived successfully</successfulUnarchive>
+			<successfulFileSave>File save successful</successfulFileSave>
+		</done>
+		<error>
+			<fatalError>Unstoppable Error</fatalError>
+			<languageNotSelect>Lütfen kullanmak istediğiniz dili seçin</languageNotSelect>
+			<notFoundAjaxUrl>The address specified for Ajax can not be empty. Please check the config.xml file</notFoundAjaxUrl>
+			<notCreateFile>The requested file could not be created</notCreateFile>
+			<notCreateFolder>The requested folder could not be created</notCreateFolder>
+			<notFoundJquery>The jQuery file was not found. Please make sure the file exists</notFoundJquery>
+			<notFoundFolder>The system can not find the specified folder</notFoundFolder>
+			<notFoundFile>The system can not find the specified file</notFoundFile>
+			<notFoundLanguageFile>No language files found</notFoundLanguageFile>
+			<unknowTimeFormat>The value entered is not a suitable timestamp</unknowTimeFormat>
+			<unknowButton>The system can not find the specified button</unknowButton>
+			<fileSizeError>The uploaded file size is more than the amount specified in config.xml</fileSizeError>
+			<fileUploadError>Found uploaded files with errors</fileUploadError>
+			<fileUploadErrorUnknow>Undetected file upload error</fileUploadErrorUnknow>
+			<fileUploadErrorDir>The specified directory could not be found</fileUploadErrorDir>
+			<fileUploadErrorExtension>File upload stopped due to a PHP plugin</fileUploadErrorExtension>
+			<fileUploadMaxFileSizePhp>Upload_max_filesize size in PHP.INI file exceeded</fileUploadMaxFileSizePhp>
+			<fileUploadMaxFileSizeForm>Max_file_size size exceeded on form label</fileUploadMaxFileSizeForm>
+			<fileUploadNotFound>File not found to upload</fileUploadNotFound>
+			<fileUploadNotFoundTmp>Temporary folder not found</fileUploadNotFoundTmp>
+			<fileUploadNotWrite>File diskette could not be printed</fileUploadNotWrite>
+			<fileUploadPartly>The file is only partially loaded</fileUploadPartly>
+			<archiveNotFound>No archive to open</archiveNotFound>
+			<archiveNotFoundFiles>No files found to archive</archiveNotFoundFiles>
+			<archiveNotUnarchive>Unable to extract archive file</archiveNotUnarchive>
+			<archiveNotOpen>Archive file not opened</archiveNotOpen>
+			<unsuccessful>Operation failed</unsuccessful>
+			<unsuccessfulRename>Renaming failed</unsuccessfulRename>
+			<unsuccessfulCopy>Copying failed</unsuccessfulCopy>
+			<unsuccessfulMove>Migration failed</unsuccessfulMove>
+			<unsuccessfulDelete>The following files could not be deleted</unsuccessfulDelete>
+			<nullVeriable>Value can not be empty</nullVeriable>
+			<errorCopy>Undetectable copy failure</errorCopy>
+			<errorMove>Undetectable transport fault</errorMove>
+			<errorRename>Undetectable renaming error</errorRename>
+			<fileNotSupport>The specified file is not supported for operation</fileNotSupport>
+			<editFileSizeError>The specified file size is too large for the operation</editFileSizeError>
+			<accessDenied>Access Denied!</accessDenied>
+			<notFoundCommand>Command error!</notFoundCommand>
+		</error>
+	</message>
+	<fileType>
+		<directory>Folder / Directory</directory>
+		<text_plain>Text File</text_plain>
+		<text_html>HTML Script Language</text_html>
+		<text_css>Cascading Style Sheets</text_css>
+		<text_x-php>PHP Script</text_x-php>
+		<application_xml>XML Data File</application_xml>
+		<application_javascript>JavaScript Script</application_javascript>
+		<application_x-rar>RAR Archive File</application_x-rar>
+		<application_zip>ZIP Archive File</application_zip>
+		<video_mp4>MP4 Video File</video_mp4>
+		<video_webm>WEBM Video File</video_webm>
+		<video_quicktime>QuickTime Video File</video_quicktime>
+		<audio_mpeg>Voice File</audio_mpeg>
+		<application_pdf>PDF Document</application_pdf>
+		<application_msword>WORD Document</application_msword>
+		<application_vnd.ms-excel>EXCEL Document</application_vnd.ms-excel>
+		<application_vnd.ms-powerpoint>PowerPoint Document</application_vnd.ms-powerpoint>
+		<image_png>PNG Graphics File</image_png>
+		<image_x-icon>ICO Icon File</image_x-icon>
+		<image_jpeg>JPEG Image File</image_jpeg>
+		<image_gif>GIF Graphics Storage</image_gif>
+		<image_svg-xml>Vector Graphic File</image_svg-xml>
+		<fileIs>file</fileIs>
+	</fileType>
+	<time>
+		<months>
+			<m1>January</m1>
+			<m2>February</m2>
+			<m3>March</m3>
+			<m4>April</m4>
+			<m5>May</m5>
+			<m6>Jun</m6>
+			<m7>July</m7>
+			<m8>August</m8>
+			<m9>September</m9>
+			<m10>October</m10>
+			<m11>November</m11>
+			<m12>December</m12>
+		</months>
+	</time>
+	<title>
+		<managerName>File Manager</managerName>
+		<managerLanguageChange>Info and Settings</managerLanguageChange>
+		<dir>Directory</dir>
+		<mainFolder>Main Directory</mainFolder>
+		<fileUpload>Upload file to server</fileUpload>
+		<addArchive>Archive files</addArchive>
+		<newFile>Create file</newFile>
+		<newFolder>Create folder</newFolder>
+		<copy>Copy directory / file</copy>
+		<move>Move directory / file</move>
+		<rename>Rename</rename>
+		<itemDetail>File Details</itemDetail>
+		<itemType>Kind</itemType>
+		<itemSize>Size</itemSize>
+		<itemLocationServer>Server Loc.</itemLocationServer>
+		<itemLocation>Location</itemLocation>
+		<itemTime>Change Date</itemTime>
+		<itemPermission>Access Permission</itemPermission>
+		<copysFiles>Copy File List</copysFiles>
+		<movesFiles>Move File List</movesFiles>
+		<rightMenu>Shortcuts</rightMenu>
+	</title>
+	<other>
+		<folders>Directory</folders>
+		<files>File</files>
+		<runing>Runing (Wait!)</runing>
+		<uploading>Uploading</uploading>
+		<cropMe>Crop Me</cropMe>
+		<croped>Croped</croped>
+		<info>File Manager v:2.4.4 Prepared by |s and made available free of charge. |n With this File Manager v:2.4.4 prepared for PHP/Js, you can perform all file operations on your server without any problems. Source code and version information can be found here: |n You can change your usage language here.</info>
+	</other>
+</FileManager>

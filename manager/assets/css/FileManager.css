@@ -1,0 +1,527 @@
+/*!
+ * FileManager (PHP/JS)
+ * version: 2.4.4
+ * Requires PHP v5.0 or later
+ * Copyright (c) 2018 Tanzer DEMİR
+ * Examples and documentation at: https://apps.tanzerdemir.net/#file_manager_v2/
+ * https://tanzerdemir.net
+*/
+.FileManagerArea{
+	margin: 0;
+	padding: 0;
+	border: 3px solid #00796b;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: .9em;
+	background-color: #ffffff;
+	box-sizing: border-box;
+	line-height:1.1;
+}
+.FileManagerArea, .FileManagerArea *, .FileManagerAreaDialog, .FileManagerAreaDialog *{
+	box-sizing: border-box;
+}
+.FileManagerArea .fa:not(.fa-caret-down){
+	margin-right: 5px;
+}
+.FileManagerArea ul, .FileManagerArea li{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.FileManagerArea > div{
+	margin: 0;
+	padding: 7px;
+	width: 100%;
+	display: table;
+	box-sizing: border-box;
+	border: 1px solid transparent;
+	border-color: #00796b; 
+}
+.FileManagerArea .buttonGroup *,
+.FileManagerArea .buttonGroup *:hover,
+.FileManagerArea .content ul *,
+.FileManagerArea .content ul *:hover{
+	-webkit-transition: all 150ms linear;
+	-moz-transition: all 150ms linear;
+	-ms-transition: all 150ms linear;
+	-o-transition: all 150ms linear;
+	transition: all 150ms linear;
+}
+.FileManagerArea .ui-selectable-helper{
+	border-style: dotted;
+	padding: 0;
+	position: fixed;
+}
+.FileManagerArea > .header{
+	background-color: #00796b;
+	color: #efefef;
+	font-weight: bold;
+	border: none;
+}
+.FileManagerArea > .header > img{
+	height: 20px;
+	margin: -3px 5px -4px -3px;
+}
+.FileManagerArea > .header > span{
+	float: right;
+	cursor: pointer;
+}
+.FileManagerArea > .header > span:hover{
+	color: #ffffff;
+}
+.FileManagerArea > .buttonGroup{
+	background-color: #fefefe;
+	color: #000;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+.FileManagerArea > .buttonGroup > ul{
+	float: left;
+	list-style-image: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+}
+.FileManagerArea > .buttonGroup > ul > li,
+.FileManagerArea > .content li > table{
+	border: 1px solid #bcbcbc;
+}
+.FileManagerArea > .buttonGroup > ul > li{
+	float: left;
+	margin: 3px 2px 2px 3px;
+	padding: 4px 7px;
+	display: block;
+	position:relative;
+}
+.FileManagerArea > .buttonGroup > ul li.disabled, .FileManagerArea > .buttonGroup > ul li.disabled > a{
+	cursor: not-allowed;
+}
+.FileManagerArea > .buttonGroup > ul li.disabled > a{
+	color: #afafaf;
+}
+.FileManagerArea > .buttonGroup > ul li > a,
+.FileManagerArea > .folderList ul > li > a,
+.FileManagerArea > .content li td{
+	color: #555555;
+	text-decoration: none;
+}
+.FileManagerArea > .buttonGroup > ul li:hover:not(.disabled):not(.line),
+.FileManagerArea > .content li:hover > table,
+.FileManagerArea > .content li.ui-selecting > table{
+	background-color: #f0f0f0;
+	cursor: pointer;
+}
+.FileManagerArea > .buttonGroup > ul li:hover:not(.disabled) > a,
+.FileManagerArea > .folderList ul > li:hover > a,
+.FileManagerArea > .content li:hover td,
+.FileManagerArea > .content li.ui-selecting td,
+.FileManagerArea > .content li table.ui-selected td{
+	color: #333333;
+	text-decoration: underline;
+}
+.FileManagerArea > .buttonGroup > ul > li:hover:not(.disabled),	
+.FileManagerArea > .content li:hover > table,
+.FileManagerArea > .content li.ui-selecting > table,
+.FileManagerArea > .content li.ui-selected > table{
+	border-color: #8f8f8f;
+}
+.FileManagerArea > .content li.ui-selected > table{
+	background-color: #e5e5e5;
+}
+.FileManagerArea > .buttonGroup > ul > li .progress{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    content: ' ';
+	z-index: 2;
+    height: -webkit-fill-available;
+    background-color: rgba(255,0,0,.5);
+}
+}
+.FileManagerArea > .buttonGroup > ul > li.disabled{
+	border: 1px solid #dcdcdc;
+}
+.FileManagerArea > .buttonGroup > ul > li small{
+	color:#8f8f8f;
+	float:right;
+	margin-left:2em;
+	size:.8em;
+	font-style:italic
+}
+.FileManagerArea > .buttonGroup > ul > li > ul{
+	visibility: hidden;
+	opacity: 0;
+	margin: 4px 0 0 -8px;
+	border: 1px dotted #8f8f8f;
+	background-color: #fefefe;
+	cursor: default;
+	z-index: 101;
+	position: absolute;
+    width: max-content;
+}
+.FileManagerArea > .buttonGroup > ul > li:hover:not(.disabled) > ul{
+	visibility: visible;
+ opacity: 1;
+}
+.FileManagerArea > .buttonGroup > ul > li > ul > li{
+	margin: 3px;
+	padding: 4px 7px;
+}
+.FileManagerArea > .buttonGroup > ul > li > ul > li.line{
+	border-bottom: 1px solid #dcdcdc;
+	height: 0;
+	padding: 0;
+	content: "";
+}
+.FileManagerArea > .folderList{
+	min-height: 430px;
+	display: block;
+	float: left;
+	width: 200px;
+	border: none;
+	padding: 0;
+}
+.FileManagerArea > .folderList > .ui-resizable-e{
+	background-color: #00796b;
+	right: -9px;
+}
+.FileManagerArea > .folderList > .ui-resizable-e:before {
+	content: '• • •';
+	color: white;
+	width: 10px;
+	position: absolute;
+	top: 50%;
+	left: -1.5px;
+	font-weight: 300;
+	line-height: 6px;
+	font-size: 11px;
+	text-align: center;
+	margin-top: -15px;
+}
+.FileManagerArea > .folderList > ul{
+	height: 100%;
+	overflow-y: auto;
+}
+.FileManagerArea > .folderList > ul > li{
+	padding: 7px;
+}
+.FileManagerArea > .folderList .fa{
+	color: #eeae4a;
+	cursor: pointer;
+}
+.FileManagerArea > .folderList ul{
+}
+.FileManagerArea > .folderList ul > li > ul{
+	margin-left: 1em;
+}
+.FileManagerArea > .folderList ul > li{
+	white-space: nowrap;
+}
+.FileManagerArea > .content{
+	min-height: 430px;
+	width: calc(100% - 200px);
+	border: none;
+	float:	right;
+	overflow-y: auto;
+ position: relative;
+	display: block;
+}
+.FileManagerArea > .content > .loading{
+	text-align: center;
+	z-index: 101;
+	position: absolute;
+	margin: -8px;
+	left: 0;
+	background-color: rgba(127,127,127,.3);
+}
+.FileManagerArea > .content > ul{
+	margin: -3px;
+	height: 100%;
+	margin-left: 7px;
+}
+.FileManagerArea > .content > ul > li{
+	float: left;
+	margin: 5px;
+	height: 80px;
+	width: 80px;
+}
+.FileManagerArea > .content > ul > li > table{
+	text-align: center;
+	border-style: dashed;
+	border-color: #d8d8d8;
+	border-spacing: 0;
+	height: 80px;
+}
+.FileManagerArea > .content > ul > li > table td{
+	-webkit-transition-property: position;
+	-moz-transition-property: position;
+	-ms-transition-property: position;
+	-o-transition-property: position;
+	transition-property: position;
+	width: 76px;
+	max-width: 76px;
+	padding: 4px;
+}
+.FileManagerArea > .content > ul > li > table tr:first-child{
+	height: 46px;
+	max-height: 46px;
+	position: relative;
+}
+.FileManagerArea > .content > ul > li > table tr:last-child td{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	height: 100%;
+	vertical-align: bottom;
+	font-size: 13px;
+}
+.FileManagerArea > .content > ul > li > table td .fa{
+	font-size: 45px;
+	margin-right: 0;
+	text-shadow: 0 0 5px #fff;
+}
+.FileManagerArea > .content > ul > li > table td img{
+	max-width: 42px;
+	width: 42px;
+	max-height: 42px;
+	border-radius: 4px;
+	box-shadow: 0 0 5px #fff;
+}
+.FileManagerArea > .content > ul > li:hover > table tr:first-child,
+.FileManagerArea > .content > ul > li.ui-selecting > table tr:first-child{
+	position: absolute;
+ z-index: 1;
+	opacity: .7;
+}
+.FileManagerArea > .content > ul > li:hover > table tr:last-child td,
+.FileManagerArea > .content > ul > li.ui-selecting > table tr:last-child td{
+	word-wrap: break-word;
+	white-space: pre-line;
+	color: #000;
+	text-shadow: 0 0 3px #fff;
+	z-index: 2;
+ position: relative;
+}
+.FileManagerArea > .content > ul > li:hover > table tr:last-child td span,
+.FileManagerArea > .content > ul > li.ui-selecting > table tr:last-child td span{
+	background-color: #fff;
+}
+.FileManagerArea > .footer{
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+}
+.FileManagerArea .code, .FileManagerAreaDialog .code{
+	padding: 2px 4px;
+	font-size: 90%;
+	color: #c7254e;
+	background-color: #f9f2f4;
+	border-radius: 4px;
+	font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+	display: block;
+	overflow-y: auto;
+}
+@media (max-width: 639px){
+	.FileManagerArea > .content{width:100%!important;}
+	.FileManagerArea > .folderList{display:none!important;}
+}
+.FileManagerAreaDialog .itemDetail{
+	width: 100%;
+	border: none;
+}
+.FileManagerAreaDialog .itemDetail .fa{
+	font-size: 45px;
+}
+.FileManagerAreaDialog .itemDetail img{
+	width: 72px;
+	max-height: 72px;
+}
+.FileManagerAreaDialog .itemDetail tr td{
+	padding: 3px 4px;
+	max-width: 236px;
+	overflow-y: auto;
+	white-space: nowrap;
+}
+.FileManagerAreaDialog .itemDetail tr:not(:last-child) td{
+	border-bottom: 1px solid #00796b;
+}
+.FileManagerAreaDialog .itemDetail tr td:not(:last-child){
+	border-right: 1px solid #00796b;
+}
+.FileManagerAreaDialog input, .FileManagerAreaDialog textarea, .FileManagerAreaDialog select{
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	padding: .1em .5em;
+	line-height: 1.5;
+	color: #495057;
+	background-color: #fff;
+	background-image: none;
+	background-clip: padding-box;
+	border: 1px solid #ced4da;
+}
+.FileManagerAreaDialog label{
+	width: 100%;
+    padding: 10px;
+    text-align: center;
+    display: block;
+    border: 3px double #8f8f8f;
+    background-color: #ddd;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    cursor: pointer;
+    font-weight: bold;
+	color: #666;
+}
+.FileManagerAreaDialog label:hover{
+	background-color:#eee;
+	text-decoration:underline;
+	border-color:#afafaf;
+	color:#333;
+}
+.FileManagerAreaDialog label.disabled{
+	pointer-events: none;
+	color: #eee;
+	cursor:progress;
+	background-color: #333;	
+}
+.FileManagerAreaDialog .preview{
+    width: 100px;
+    margin: 5px;
+    padding: 3px;
+    background-color: white;
+    border: 1px solid #ccc;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+}
+.FileManagerAreaDialog .preview img{
+	height: 92px;
+	width: auto;
+	max-width: 92px;
+}
+.FileManagerAreaDialog .preview i{
+	font-size: 72px;
+    text-align: center;
+    margin-top: 9px;
+}
+.FileManagerAreaDialog .preview i:after{
+    content: attr(data-ext);
+    position: relative;
+    font-size: 20%;
+    text-transform: uppercase;
+    color: white;
+    background-color: black;
+    margin: -40px 0 20px 16px;
+    width: 47px;
+    height: 13px;
+    text-align: center;
+    padding: 5px;
+    text-overflow: clip;
+    display: flow-root;
+}
+.FileManagerAreaDialog .preview small{
+    border-top: 1px solid #ccc;
+    width: 100%;
+    display: block;
+    margin-top: 4px;
+    overflow-wrap: break-word;
+}
+.FileManagerAreaDialog pre{
+	display: block;
+	overflow-y: auto;
+	color: #333;
+	background-color: #f5f5f5;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 3px 4px;
+}
+.FileManagerAreaDialog .rightMenu{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+.FileManagerAreaDialog .rightMenu li{
+	margin: 3px 0 2px 0;
+	font-size: 1.1em;
+	cursor:pointer;
+	padding:5px;
+}
+.FileManagerAreaDialog .rightMenu li:hover{
+	background-color:#ddd;
+}
+.FileManagerAreaDialog .rightMenu li small{
+	display:none;
+}
+
+/* JQUERY-UI DIALOG */
+button.ui-button.red{
+	color: #cf8f8f;
+	border-color: #ecbcbc;
+}
+button.ui-button.red:hover,button.ui-button.red:focus{
+	color: #a55;
+	border-color: #cf8f8f;
+}
+.ui-widget-overlay.custom{
+	background:transparent!important;
+}
+.FileManagerArea.fullscreen{
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	z-index:1;
+}
+body.FMfullscreen{margin:0;padding:0;width:100%;height:100%;padding:0;margin:0;overflow:hidden;}
+[aria-describedby="FileManagerAreaDialog"]{
+	/* */
+}
+@media (prefers-color-scheme: dark) {
+	:root {color-scheme: dark;}
+	.FileManagerArea,
+	.FileManagerArea>div,
+	.FileManagerArea>.buttonGroup>ul>li:hover:not(.disabled):not(.line),
+	.FileManagerArea>.content li:hover>table,
+	.FileManagerArea>.content li.ui-selected>table,
+	.FileManagerArea>.content li.ui-selecting>table,
+	.FileManagerArea>.buttonGroup>ul>li>ul,
+	.FileManagerArea>.folderList>.ui-resizable-e,
+	.ui-dialog .ui-widget-header,
+	.ui-widget.ui-widget-content,
+	.FileManagerAreaDialog input, .FileManagerAreaDialog textarea, .FileManagerAreaDialog select, .ui-button,.FileManagerAreaDialog label { 
+		border-color:#000!important;
+		background:#333!important;
+		color:#ccc!important;
+	}
+	.FileManagerArea>.header{background:#000!important;}
+	.FileManagerArea>.header>span:hover,
+	.FileManagerAreaDialog *{color:#ccc!important;}
+	.FileManagerArea>.buttonGroup>ul>li,.FileManagerAreaDialog .itemDetail tr:not(:last-child) td,.FileManagerAreaDialog .itemDetail tr td:not(:last-child){border-color:#999!important;}
+	.FileManagerArea>.buttonGroup>ul>li a,
+	.FileManagerArea>.folderList a,
+	.FileManagerArea>.folderList .fa,
+	.FileManagerArea>.content li:hover td span,
+	.FileManagerArea>.content li.ui-selected td span,
+	.FileManagerArea>.content li.ui-selecting td span,
+	.FileManagerArea>.content li td,.ui-widget-content{background:transparent!important;color:#ccc!important;}
+	.FileManagerArea>.buttonGroup>ul>li>ul>li:hover:not(.disabled),
+	.ui-dialog .ui-dialog-content,
+	.ui-dialog.ui-widget,
+	.ui-widget-content{background:#666!important;}
+	.FileManagerArea>.buttonGroup li.disabled,
+	.FileManagerArea>.content li>table{border-color:#666!important;}
+	.FileManagerArea>.buttonGroup li.disabled small{color:#666!important;}
+	.FileManagerArea>.buttonGroup li.disabled a{color:#666!important;}
+	.FileManagerArea>.folderList,
+	.FileManagerArea>.content,
+	.FileManagerAreaDialog .rightMenu li:hover{background-color:#444!important;}
+	.FileManagerArea>.content>ul>li>table td .fa,
+	.FileManagerArea>.content li:hover td span,
+	.FileManagerArea>.content li.ui-selected td span,
+	.FileManagerArea>.content li.ui-selecting  td span{text-shadow:0 0 5px #333!important;}
+	.FileManagerArea>.content>ul>li>table td img.fa{box-shadow:0 0 5px #333!important;}
+	.FileManagerArea .code,.FileManagerAreaDialog .code,.FileManagerAreaDialog pre,.FileManagerAreaDialog .preview{background:#222!important;color:#ccc!important;border-color:transparent!important;}
+	.ui-widget-overlay{background:#666 url('../js/jquery-ui-1.12.1.custom/images/ui-bg_diagonals-thick-dark_20_666666_40x40.png') 50% 50% repeat!important;}
+	button.ui-button.red,.FileManagerAreaDialog span:not([onclick=""]){color:#d66!important}
+	.ui-button:hover,.FileManagerAreaDialog label:hover{background:#555!important;}
+	.ui-button .ui-icon:hover{background-image:url('../js/jquery-ui-1.12.1.custom/images/ui-icons_ffffff_256x240.png')!important}
+}

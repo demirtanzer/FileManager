@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FileManager>
+	<language>
+		<name>Türkçe</name>
+	</language>
+	<button>
+		<back>Geri</back>
+		<refresh>Yenile</refresh>
+		<fileAndFolder>Dosya ve Dizin</fileAndFolder>
+		<newFile>Yeni Dosya</newFile>
+		<newFolder>Yeni Dizin</newFolder>
+		<edit>Düzenle</edit>
+		<copy>Kopyala</copy>
+		<move>Taşı</move>
+		<rename>Yeniden Adlandır</rename>
+		<archive>Arşiv</archive>
+		<archiveRar>RAR Olarak Sıkıştır</archiveRar>
+		<archiveZip>ZIP Olarak Sıkıştır</archiveZip>
+		<unarchive>Arşivden Çıkar</unarchive>
+		<download>İndir</download>
+		<upload>Yükle</upload>
+		<delete>Sil</delete>
+		<detail>Detay Göster</detail>
+		<languageList>Dil Değiştir</languageList>
+		<settings>Ayarlar</settings>
+		<cancel>İptal</cancel>
+		<close>Kapat</close>
+		<okey>Tamam</okey>
+		<addArchive>Arşivi Oluştur</addArchive>
+		<reopen>Yeniden Aç</reopen>
+		<save>Değişiklikleri Kaydet</save>
+		<show>Göster</show>
+		<clipboard>Pano</clipboard>
+		<completeAction>İşlemi Tamamla</completeAction>
+		<imageCrop>Görseli Kırp</imageCrop>
+	</button>
+	<message>
+		<sure>
+			<areYouSure>Emin misiniz?</areYouSure>
+			<fileEdit>Emin misiniz? Yaptığınız tüm değişiklikleri kaybedeceksiniz</fileEdit>
+			<fileDelete>öğe kalıcı olarak silinecek</fileDelete>
+			<canNotBeDone>Bu işlem geri alınamaz</canNotBeDone>
+			<messageCopyFileFolder>Lütfen kopyalama konumunu seçiniz</messageCopyFileFolder>
+			<messageRenameFileFolder>Yeni ismi yazınız</messageRenameFileFolder>
+			<newZipFileName>Arşiv dosyasının ismi</newZipFileName>
+			<newFolderName>Oluşturulacak dizinin ismi</newFolderName>
+			<newFolderMessage>Oluşturmak istediğiniz dizinin ismini giriniz. Bu dizin görüntülenen dizin içinde oluşturulacaktır</newFolderMessage>
+			<newFileName>Oluşturulacak dosyanın ismi</newFileName>
+			<newFileMessage>Oluşturmak istediğiniz dosyanın ismini giriniz. Bu dosya görüntülenen dizin içinde oluşturulacaktır</newFileMessage>
+		</sure>
+		<done>
+			<successful>İşlem başarılı</successful>
+			<successfulUpload>Yükleme işlemi başarılı</successfulUpload>
+			<successfulRename>Yeniden adlandırma işlemi başarılı</successfulRename>
+			<successfulCopy>Kopyalama işlemi başarılı</successfulCopy>
+			<successfulMove>Taşıma işlemi başarılı</successfulMove>
+			<successfulDelete>Aşağıdaki dosyalar silindi</successfulDelete>
+			<successfulCreateZip>ZIP arşivi oluşturuldu</successfulCreateZip>
+			<fileAddZipArchive>ZIP arşivine eklendi</fileAddZipArchive>
+			<successfulUnarchive>Arşiv başarıyla ayıklandı</successfulUnarchive>
+			<successfulFileSave>Dosya başarıyla kaydedildi</successfulFileSave>
+		</done>
+		<error>
+			<fatalError>Durdurulamaz Hata</fatalError>
+			<languageNotSelect>Lütfen kullanmak istediğiniz dili seçin</languageNotSelect>
+			<notFoundAjaxUrl>Ajax için belirtilen adres boş bırakılamaz. Lütfen config.xml dosyasını kontrol ediniz</notFoundAjaxUrl>
+			<notCreateFile>İstenilen dosya oluşturulamadı</notCreateFile>
+			<notCreateFolder>İstenilen klasör oluşturulamadı</notCreateFolder>
+			<notFoundJquery>jQuery dosyası bulunamadı. Lütfen dosyanın varlığından emin olun</notFoundJquery>
+			<notFoundFolder>Sistem belirtilen klasörü bulamıyor</notFoundFolder>
+			<notFoundFile>Sistem belirtilen dosyayı bulamıyor</notFoundFile>
+			<notFoundLanguageFile>Hiç bir dil dosyası bulunamadı</notFoundLanguageFile>
+			<unknowTimeFormat>Girilen değer, uygun bir zaman damgası değildir</unknowTimeFormat>
+			<unknowButton>Sistem belirtilen butonu bulamıyor</unknowButton>
+			<fileSizeError>Yüklenen dosya boyutu, config.xml içinde belirtilen miktardan fazladır</fileSizeError>
+			<fileUploadError>Yüklenen dosyalarda hata bulundu</fileUploadError>
+			<fileUploadErrorUnknow>Tespit edilemeyen dosya yükleme hatası</fileUploadErrorUnknow>
+			<fileUploadErrorDir>Belirtilen dizin bulunamadı</fileUploadErrorDir>
+			<fileUploadErrorExtension>Dosya yükleme bir PHP eklentisi nedeniyle durmuştur</fileUploadErrorExtension>
+			<fileUploadMaxFileSizePhp>PHP.INI dosyasında ki upload_max_filesize boyutu aşıldı</fileUploadMaxFileSizePhp>
+			<fileUploadMaxFileSizeForm>Form etiketinde bulunan max_file_size boyutu aşıldı</fileUploadMaxFileSizeForm>
+			<fileUploadNotFound>Yüklenecek dosya bulunamadı</fileUploadNotFound>
+			<fileUploadNotFoundTmp>Geçici klasör bulunamadı</fileUploadNotFoundTmp>
+			<fileUploadNotWrite>Dosya diske yazdırılamadı</fileUploadNotWrite>
+			<fileUploadPartly>Dosya sadece kısmen yüklendi</fileUploadPartly>
+			<archiveNotFound>Açılacak arşiv bulunamadı</archiveNotFound>
+			<archiveNotFoundFiles>Arşive eklenecek dosya bulunamadı</archiveNotFoundFiles>
+			<archiveNotUnarchive>Arşiv dosyası ayıklanamadı</archiveNotUnarchive>
+			<archiveNotOpen>Arşiv dosyası açılamadı</archiveNotOpen>
+			<unsuccessful>İşlem başarısız</unsuccessful>
+			<unsuccessfulRename>Yeniden adlandırma işlemi başarısız</unsuccessfulRename>
+			<unsuccessfulCopy>Kopyalama işlemi başarısız</unsuccessfulCopy>
+			<unsuccessfulMove>Taşıma işlemi başarısız</unsuccessfulMove>
+			<unsuccessfulDelete>Aşağıdaki dosyalar silinemedi</unsuccessfulDelete>
+			<nullVeriable>Değer boş bırakılamaz</nullVeriable>
+			<errorCopy>Tespit edilemeyen kopyalama hatası</errorCopy>
+			<errorMove>Tespit edilemeyen taşıma hatası</errorMove>
+			<errorRename>Tespit edilemeyen yeniden isimlendirme hatası</errorRename>
+			<fileNotSupport>Belirtilen dosya işlem için desteklenmemektedir</fileNotSupport>
+			<editFileSizeError>Belirtilen dosya boyutu işlem için fazlasıyla büyük</editFileSizeError>
+			<accessDenied>Erişim Engellendi!</accessDenied>
+			<notFoundCommand>Komut hatası!</notFoundCommand>
+		</error>
+	</message>
+	<fileType>
+		<directory>Klasör / Dizin</directory>
+		<text_plain>Metin Dosyası</text_plain>
+		<text_html>HTML Betik Dili</text_html>
+		<text_css>Basamaklı Stil Şablonu</text_css>
+		<text_x-php>PHP Komut Dosyası</text_x-php>
+		<application_xml>XML Veri Dosyası</application_xml>
+		<application_javascript>JavaScript Komut Dosyası</application_javascript>
+		<application_x-rar>RAR Arşiv Dosyası</application_x-rar>
+		<application_zip>ZIP Arşiv Dosyası</application_zip>
+		<video_mp4>MP4 Video Dosyası</video_mp4>
+		<video_webm>WEBM Video Dosyası</video_webm>
+		<video_quicktime>QuickTime Video Dosyası</video_quicktime>
+		<audio_mpeg>Ses Dosyası</audio_mpeg>
+		<application_pdf>PDF Dökümanı</application_pdf>
+		<application_msword>WORD Belgesi</application_msword>
+		<application_vnd.ms-excel>Elektronik Belge</application_vnd.ms-excel>
+		<application_vnd.ms-powerpoint>Sunum Dosyası</application_vnd.ms-powerpoint>
+		<image_png>PNG Grafik Dosyası</image_png>
+		<image_x-icon>ICO Simge Dosyası</image_x-icon>
+		<image_jpeg>JPEG Resim Dosyası</image_jpeg>
+		<image_gif>GIF Grafik Deposu</image_gif>
+		<image_svg-xml>Vektörel Grafik Dosyası</image_svg-xml>
+		<fileIs>Dosyası</fileIs>
+	</fileType>
+	<time>
+		<months>
+			<m1>Ocak</m1>
+			<m2>Şubat</m2>
+			<m3>Mart</m3>
+			<m4>Nisan</m4>
+			<m5>Mayıs</m5>
+			<m6>Haziran</m6>
+			<m7>Temmuz</m7>
+			<m8>Ağustos</m8>
+			<m9>Eylül</m9>
+			<m10>Ekim</m10>
+			<m11>Kasım</m11>
+			<m12>Aralık</m12>
+		</months>
+	</time>
+	<title>
+		<managerName>Dosya Yöneticisi</managerName>
+		<managerLanguageChange>Bilgi ve Ayarlar</managerLanguageChange>
+		<dir>Dizin</dir>
+		<mainFolder>Ana Dizin</mainFolder>
+		<fileUpload>Sunucuya dosya yükle</fileUpload>
+		<addArchive>Dosyaları arşivle</addArchive>
+		<newFile>Dosya oluştur</newFile>
+		<newFolder>Dizin oluştur</newFolder>
+		<copy>Dizin/Dosya kopyala</copy>
+		<move>Dizin/Dosya taşı</move>
+		<rename>Yeniden adlandır</rename>
+		<itemDetail>Dosya Detayları</itemDetail>
+		<itemType>Tür</itemType>
+		<itemSize>Boyut</itemSize>
+		<itemLocationServer>Sunucu K.</itemLocationServer>
+		<itemLocation>Konum</itemLocation>
+		<itemTime>Değiştirme Tarihi</itemTime>
+		<itemPermission>Erişim İzni</itemPermission>
+		<copysFiles>Kopyalanacak Dosyalar</copysFiles>
+		<movesFiles>Taşınacak Dosyalar</movesFiles>
+		<rightMenu>İşlemler</rightMenu>
+	</title>
+	<other>
+		<folders>Klasör</folders>
+		<files>Dosya</files>
+		<runing>İşleniyor (Bekleyin!)</runing>
+		<uploading>Yükleniyor</uploading>
+		<cropMe>Beni Kırp</cropMe>
+		<croped>Kırpık</croped>
+		<info>File Manager v:2.4.4 |s tarafından hazırlanmış, ücretsiz olarak kullanıma sunulmuştur. |n Php/Js için hazırlanmış olan bu File Manager v:2.4.4 ile sunucunuzda bulunan tüm dosya işlemlerini sorunsuzca yapabilirsiniz. Kaynak kod ve sürüm bilgilerine buradan ulaşabilirsiniz: |n Kullanım dilinizi buradan değiştirebilirsiniz.</info>
+	</other>
+</FileManager>

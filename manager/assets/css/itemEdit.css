@@ -1,0 +1,142 @@
+/*!
+ * FileManager (PHP/JS)
+ * version: 2.4.4
+ * Requires PHP v5.0 or later
+ * Copyright (c) 2018 Tanzer DEMİR
+ * Examples and documentation at: https://apps.tanzerdemir.net/#file_manager_v2/
+ * https://tanzerdemir.net
+*/
+html, body{
+	margin:0;
+	padding:0;
+	background-color:#fff;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+*:not(#editor){
+	box-sizing:border-box;
+}
+body{
+	padding:5px;
+}
+#editor { 
+	margin: 0;
+	position: relative;
+	width:100%;
+	height:100%
+}
+.main{
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	width: 100%;
+	height: 100%;
+    transition: all 150ms linear;
+}
+.main, .main>thead td{
+	border: 2px solid #00796b;
+	border-collapse:collapse;
+}
+.main thead td{
+	padding: 6px;
+	margin: 0;
+	height: 35px;
+}
+.main thead td.title{
+	background-color: #00796b;
+	color: #fff;
+	height: auto;
+	font-weight:bold;
+}
+.main thead div{
+	float: right;
+	display: table-cell;
+}
+.form{
+	background-color: #fff;
+	border: 1px solid #bcbcbc;
+	padding: 3px 7px;
+	margin: 0 1px 5px 0;
+	height: 25px;
+	cursor: pointer;
+	color: #555;
+}
+.form:active{
+	background-color: #c0c0c0;
+}
+.form:hover,.form:focus{
+	background-color: #f0f0f0;
+	text-decoration:underline;
+}
+.form[type=text],.form[disabled]{
+	cursor: not-allowed;
+	background: #d0d0d0;
+}
+.form.crop.active{
+    text-decoration: underline;
+    background: #daecea;
+    border-color: #00796b;
+}
+.area-image{
+	padding:10px 0;
+	vertical-align:top;
+	text-align:-webkit-center;
+	display:block;
+}
+.image{
+	box-sizing:border-box;
+	position:relative;
+	border:2px solid #00796b; 
+    transition: none;
+}
+.image .area{
+	position:absolute;
+	border-collapse:collapse;
+	z-index:3;
+	background:rgba(255,255,255,.3);
+    transition: none;
+	display: none;
+}
+.image.crop .area{display:table;}
+.image.crop .area td{
+	border:2px dotted #00796b;
+}
+.image.crop:after{
+	background:rgba(0,0,0,.3);
+	position:absolute;
+	z-index:2;
+	width:100%;
+	height:100%;
+	content:" ";
+	top:0;
+	left:0;
+}
+.image.crop .area:after,.image.crop td.sure:after{
+	background:rgba(0,121,107,.6);
+	border:1px solid rgba(0,121,107,.9);
+	color:#ddd;
+	position:absolute;
+	font-size:13px;
+	padding:3px;
+}
+.image.crop .area:after{
+	height:15px;
+	content:attr(data-size);
+    right: 0;
+    top: calc(100% + 5px);
+	white-space: pre;
+}
+.image.crop td.sure:after{
+    content: attr(data-text);
+    left: 0.3em;
+    top: .3em;
+}
+@media (prefers-color-scheme: dark) {
+	:root {color-scheme: dark;}
+	html, body, form{background:#444!important}
+	textarea{background:rgba(0,0,0,.5)!important}
+	.main, .main>thead td,.form{border-color:#000!important;}
+	.main thead td.title{background:#000!important}
+	.form{background: #444!important;color:#ddd!important}
+	.form:hover,.form:focus{background:#666!important}
+	.form[type=text],.form[disabled]{background:#555!important;color:#aaa!important;}
+}

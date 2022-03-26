@@ -21,6 +21,7 @@ $adr = '//'.$_SERVER['HTTP_HOST'].'';
   <div id="files">
    <div id="FileManagerArea" data-language="TR-tr" data-managerfolder="/manager/"></div>
   </div>
+ </body>
  <script type="text/javascript" src="<?=$adr?>/manager/assets/js/jquery-3.2.1.min.js"></script>
  <script type="text/javascript" src="<?=$adr?>/manager/assets/js/FileManager.js?16"></script>
  <script type="text/javascript">

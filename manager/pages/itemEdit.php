@@ -234,7 +234,6 @@
 	return $re;
  }
  if(!empty($_GET['file']) && !empty($_GET['assets']) && file_exists(__DIR__ .'/../xml/lang/'.@$_GET['lang'].'.xml')){
-  $file = $_GET['file'];
   $assets = $_GET['assets'];
   $lang = $_GET['lang'];
   $xml = simplexml_load_string(file_get_contents(__DIR__ ."/../xml/lang/$lang.xml"), "SimpleXMLElement", LIBXML_NOCDATA);
@@ -242,7 +241,12 @@
   $main = json_decode(json_encode($main),TRUE);
   $backDir = '/'; $s=count(explode('/',$assets)) - 1;
   for($a=0;$a<$s;$a++) $backDir.='../';
-  $main = realpath(__DIR__ .$backDir.$main['mainFolder']);
+  $file = '';
+  foreach(explode('/',$_GET['file']) as $a){ 
+	  if(empty($a) or $a=='..' or $a=='.') continue; //DONT PREW DIR :)
+	  else $file.='/'.$a;
+  }
+  $main = realpath(__DIR__ .$backDir).$main['mainFolder'];
   $lang=strtolower(substr($lang,0,2));
   $json = json_encode($xml);
   $array = json_decode($json,TRUE);

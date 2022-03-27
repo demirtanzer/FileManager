@@ -31,20 +31,9 @@
 			echo($fm->imageCrop($fm->post('path'),$arr,$fm->post('add'))?1:0);
 		break;
 		case 'language':
-			$xmlDir = $fm->managerFolder."/xml/lang/";
-			$fileList = $fm->listing($xmlDir,'all',0);
-			$xmlList = array();
-			if(is_array($fileList)){
-				if(count($fileList['files'])>0){
-					foreach($fileList['files'] as $file){
-						if($file[1]=='application/xml'){
-							$xml = simplexml_load_file($xmlDir.$file[0]);
-							if($lang = $xml->language->name) $xmlList[$drm++] = array(substr($file[0],0,-4),$lang);
-						}
-					}
-				}
-			}
-			echo (is_array($fileList)?(count($xmlList)>0?json_encode($xmlList):'notFoundLanguageFile'):$fileList);
+			$xmlList = $fm->languageList();
+			$drm = count($xmlList);
+			echo (count($xmlList)>0?json_encode($xmlList):'notFoundLanguageFile');
 		break;
 		case 'detail':
 			$drm = $fm->details($fm->post('path'),$fm->post('type'));

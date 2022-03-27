@@ -38,6 +38,7 @@ class fmp{
 			if ($part=='..') array_pop($url);
 			else $url[] = $part;
 		}
+		// if(substr($path,0,2)==$sep . $sep && ($type || $xxx)) array_unshift($url,'','');
 		$x = $type;
 		if(strtoupper(substr(PHP_OS,0,3))=='WIN') $type=false;
 		if($xxx && strtoupper(substr(PHP_OS,0,3))!='WIN')$type = true;
@@ -45,9 +46,11 @@ class fmp{
 		if(substr($server,0,2)==$sep.$sep) $y = $sep.$sep;
 		elseif(substr($server,0,1)==$sep) $y = $sep;
 		$url = ($type?$y:'').implode($sep, $url);
-		if($x and strlen($url.$sep)>=strlen($server) AND substr($url.$sep,0,strlen($server))==$server) return $url; //For inject
+		if($x and strlen($url.$sep)>=strlen($server) AND substr($url.$sep,0,strlen($server))==$server) return $url;
 		if(!$x) return $url;
-		exit($this->error($url,'Op: Path. Path error','NotFound')); 
+		header("HTTP/1.0 404 Not Found - $url - $server");
+		$this->error($url,'Op: Path. Path error','NotFound');
+		exit(); 
 	}
 	private function config($id){
 		$xml = $this->managerFolder.'/xml/config/config.xml';
@@ -264,12 +267,14 @@ class fmp{
 		if(file_exists($path)){
 			$folder = $files = $file = $image = array();
 			$scan = opendir($path);
+			if(!$scan) return $this->error($path,'Op: Directory List. Directory not open!','notOpenFolder');
 			while(false !== ($s = readdir($scan))){
 				if($s!='.' && $s!='..'){
 					if(!is_file($path.DIRECTORY_SEPARATOR .$s)) array_push($folder,$s);
 					else array_push($files,$s);
 				}
 			}
+			closedir($scan);
 			sort($folder);
 			$url = $this->url($path);
 			$re = array('url'=>$url.(substr($url,-1)!='/'?'/':''),'path'=>$path,'uurl'=>$url);
@@ -303,6 +308,22 @@ class fmp{
 			return $re;
 		}
 		return $this->error($path,'Op: Directory List. Directory not found!','notFoundFolder');
+	}
+	public function languageList(){
+		$list = array();
+		$xmlList = array();
+		$langDir = $this->managerFolder.'/xml/lang/';
+		$scan = opendir($langDir);
+		if(!$scan) return $this->error($path,'Op: Language List. Directory not open!','notOpenFolder');
+		while(false !== ($s = readdir($scan))){
+			if($s!='.' and $s!='..' and substr($s,0,1)!='.' and substr(strrchr($s,'.'),1)=='xml'){
+				$xml = simplexml_load_file($langDir.$s);
+				if($lang = $xml->language->name) array_push($xmlList,array(substr($s,0,-4),$lang));
+			}
+		}
+		closedir($scan);
+		if(count($xmlList)>0) return $xmlList;
+		return $this->error($path,'Op: Language List. Language files not found!','notFoundLanguageFiles');
 	}
 	public function folderList($dir=''){
 		$dir = str_replace($this->realpath(''),'',$dir);
@@ -410,6 +431,7 @@ class fmp{
 							}
 						}
 						closedir($dir_);
+						$x++;
 						@$this->delete($file);
 					}
 					else return $this->error("$path -> $name",'Op: Move. New folder not created!','notCreateFolder',1);
@@ -451,6 +473,7 @@ class fmp{
 							}
 						}
 						closedir($dir_);
+						$x++;
 					}
 					else return $this->error("$path -> $name",'Op: Copy. New folder not created!','notCreateFolder',1);
 				}

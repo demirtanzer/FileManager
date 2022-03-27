@@ -29,7 +29,8 @@ class fmp{
 				$path = str_replace($mf,'',$path);
 			}
 		}
-		$path = str_replace(array('/', '\\', DIRECTORY_SEPARATOR), $sep, ($type?$this->server:'').$path);
+		$server=$this->server;
+		$path = str_replace(array('/', '\\', DIRECTORY_SEPARATOR), $sep, ($type?$server:'').$path);
 		$parts = array_filter(explode($sep, $path), 'strlen');
 		$url = array();
 		foreach ($parts as $part) {
@@ -37,11 +38,16 @@ class fmp{
 			if ($part=='..') array_pop($url);
 			else $url[] = $part;
 		}
-		// if(substr($path,0,2)==$sep . $sep && ($type || $xxx)) array_unshift($url,'','');
+		$x = $type;
 		if(strtoupper(substr(PHP_OS,0,3))=='WIN') $type=false;
 		if($xxx && strtoupper(substr(PHP_OS,0,3))!='WIN')$type = true;
-		// exit($this->mainFolder);
-		return ($type?$sep.$sep:'').implode($sep, $url);
+		$y = '';
+		if(substr($server,0,2)==$sep.$sep) $y = $sep.$sep;
+		elseif(substr($server,0,1)==$sep) $y = $sep;
+		$url = ($type?$y:'').implode($sep, $url);
+		if($x and strlen($url.$sep)>=strlen($server) AND substr($url.$sep,0,strlen($server))==$server) return $url; //For inject
+		if(!$x) return $url;
+		exit($this->error($url,'Op: Path. Path error','NotFound')); 
 	}
 	private function config($id){
 		$xml = $this->managerFolder.'/xml/config/config.xml';
@@ -108,6 +114,8 @@ class fmp{
 			$this->error($path,'Op: New Name. This folder not found!','notFoundFolder');
 			return false;
 		}
+		$name=explode('/',$name);
+		$name=$name[count($name)-1];
 		if(!file_exists($path.'/'.$name)) return $name;
 		$x = 2;
 		if(is_dir("$path/$name")) $ext = '';
@@ -209,6 +217,7 @@ class fmp{
 	}
 	public function create($name,$path,$type,$rp=0){
 		if(!$rp)$path = $this->realpath($path);
+		exit($path);
 		if(!file_exists($path)) return $this->error($path,'Op: Create. This folder not found!','notFoundFolder');
 		$name = $this->newName($path,$name);
 		if($type=='newFile'){
@@ -232,9 +241,14 @@ class fmp{
 		$file = $this->realpath($file);
 		if(file_exists($file)){
 			if(is_file($file)){
-				$xhr = fopen($file, 'w+');
-				if(fwrite($xhr, $cont)) $i=1;
-				fclose($xhr);
+				if(strlen($cont)){
+					$xhr = fopen($file, 'w+');
+					if(fwrite($xhr, $cont)) $i=1;
+					fclose($xhr);
+				}
+				else{
+					if(unlink($file) and touch($file)) $i=1;
+				}
 				if(isset($i)) return true;
 				$this->error($file,'Op: File Save. This file not save!','notSaveFile');
 				return false;
